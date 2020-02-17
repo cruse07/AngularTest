@@ -1,0 +1,592 @@
+    //class Program
+    //{
+    //    static List<string> pal = new List<string>();
+    //    static void Main(string[] args)
+    //    {
+    //        ScheduleRunner.IntervalInSeconds(19, 56, 15, () => {
+    //            Console.WriteLine("scheduler Started");
+    //        });
+    //        int a = 10, b = 5;
+    //        a = a + b;
+    //        b = a - b;
+    //        a = a - b;
+    //        string x = "a", y = "b";
+    //        Console.WriteLine("Original Value " + "x = " + x + " and " + "y = " + y);
+    //        x = x + ',' + y;
+           
+    //        y= x.Split(',')[x.Split(',').Length- x.Split(',').Length];
+    //        x = x.Split(',')[x.Split(',').Length-1];
+    //        Console.WriteLine("Changed Value " + "x = " + x + " and " + "y = " + y);
+    //        SortArray();
+    //        //GetAddresses();
+    //        //int[] ar = new int[] { 5, 23, 23, 66, 5, 23, 7, 0 };
+
+    //        //var d = getSingle(ar, ar.Length);
+    //        ////var element = nArray[0];
+    //        //var noPairs = ar.GroupBy(i => i)
+    //        //        .Where(g => g.Count() % 2 == 1).ToList();
+    //        //int res = ar[0];
+    //        //for (int i = 1; i < ar.Length; i++)
+    //        //{
+    //        //    res = res ^ ar[i];
+    //        //    Console.WriteLine(res);
+    //        //}
+
+
+
+    //        //if hasMatch == false, you found your item.
+
+    //        Console.Read();
+    //    }
+    //    static void SortArray()
+    //    {
+    //        // declaring and initializing the array 
+    //        int[] arr = new int[] { 1, 9, 6, 7, 5, 9 };
+
+    //        int temp;
+
+    //        // traverse 0 to array length 
+    //        for (int i = 0; i < arr.Length - 1; i++)
+
+    //            // traverse i+1 to array length 
+    //            for (int j = i + 1; j < arr.Length; j++)
+
+    //                // compare array element with  
+    //                // all next element 
+    //                if (arr[i] > arr[j])
+    //                {
+
+    //                    temp = arr[i];
+    //                    arr[i] = arr[j];
+    //                    arr[j] = temp;
+    //                }
+
+    //        // print all element of array 
+    //        foreach (int value in arr)
+    //        {
+    //            Console.Write(value + " ");
+    //        }
+    //    }
+    //    static void GetMap(string longi, string lati)
+    //    {
+    //        Console.WriteLine("Map Returned for coordinates " + longi +" ," + lati);
+    //    }
+    //    static void GetAddresses()
+    //    {
+    //        List<Address> addresses = new List<Address>();
+    //        addresses.Add(new Address {
+    //            AddressID= Guid.NewGuid(),
+    //            Line1= "street1",
+    //            Line2="Sector1",
+    //            Line3= "pocket1",
+    //            City="New Delhi",
+    //            Zip= 110011,
+    //            Latitude= "91.9",
+    //            Longitude="35.765"
+    //        });
+    //        addresses.Add(new Address
+    //        {
+    //            AddressID = Guid.NewGuid(),
+    //            Line1 = "street1",
+    //            Line2 = "Sector1",
+    //            Line3 = "pocket1",
+    //            City = "New Delhi",
+    //            Zip = 110011,
+    //            Latitude = "91.9",
+    //            Longitude = "35.765"
+    //        });
+    //        addresses.Add(new Address
+    //        {
+    //            AddressID = Guid.NewGuid(),
+    //            Line1 = "street2",
+    //            Line2 = "Sector2",
+    //            Line3 = "pocket2",
+    //            City = "New Delhi",
+    //            Zip = 110011,
+    //            Latitude = "78.735",
+    //            Longitude = "23.865"
+    //        });
+    //        addresses.Add(new Address
+    //        {
+    //            AddressID = Guid.NewGuid(),
+    //            Line1 = "street3",
+    //            Line2 = "Sector3",
+    //            Line3 = "pocket3",
+    //            City = "New Delhi",
+    //            Zip = 110011,
+    //            Latitude = "67.6756",
+    //            Longitude = "5.54564"
+    //        });
+    //        addresses.Add(new Address
+    //        {
+    //            AddressID = Guid.NewGuid(),
+    //            Line1 = "street4",
+    //            Line2 = "Sector4",
+    //            Line3 = "pocket4",
+    //            City = "New Delhi",
+    //            Zip = 110011,
+    //            Latitude = "26.83696",
+    //            Longitude = "43.862537"
+    //        });
+    //        addresses.Add(new Address
+    //        {
+    //            AddressID = Guid.NewGuid(),
+    //            Line1 = "street2",
+    //            Line2 = "Sector2",
+    //            Line3 = "pocket2",
+    //            City = "New Delhi",
+    //            Zip = 110011,
+    //            Latitude = "78.735",
+    //            Longitude = "23.865"
+    //        });
+    //        Dictionary<string, object> uniqueAddresses = new Dictionary<string, object>();
+    //        foreach (var item in addresses)
+    //        {
+    //            string key = item.Line1 + item.Line2 + item.Line3 + item.City + item.Zip;
+    //            if (!uniqueAddresses.ContainsKey(key))
+    //            {
+                    
+    //                //uniqueAddresses.Add(key, item);
+    //                GetMap(item.Longitude, item.Latitude);
+    //                string previousKey = key;
+    //            }
+    //        }
+    //    }
+        
+    //    static void occurredOnce(int[] arr)
+    //    {
+    //        // Sort the array 
+    //        Array.Sort(arr);
+
+    //        // Check for first element 
+    //        if (arr[0] != arr[1])
+    //            Console.Write(arr[0] + " ");
+
+    //        // Check for all the elements  
+    //        // if it is different 
+    //        // its adjacent elements 
+    //        for (int i = 1; i < arr.Length - 1; i++)
+    //            if (arr[i] != arr[i + 1] &&
+    //                arr[i] != arr[i - 1])
+    //                Console.Write(arr[i] + " ");
+
+    //        // Check for the last element 
+    //        if (arr[arr.Length - 2] != arr[arr.Length - 1])
+    //            Console.Write(arr[arr.Length - 1] + " ");
+    //    }
+
+
+    //    static int getSingle(int[] arr, int n)
+    //    {
+    //        int ones = 0, twos = 0;
+    //        int common_bit_mask;
+
+    //        for (int i = 0; i < n; i++)
+    //        {
+    //            // "one & arr[i]" gives the bits  
+    //            // that are there in both 'ones'  
+    //            // and new element from arr[].  
+    //            // We add these bits to 'twos'  
+    //            // using bitwise OR 
+    //            twos = twos | (ones & arr[i]);
+
+    //            // "one & arr[i]" gives the bits  
+    //            // that are there in both 'ones'  
+    //            // and new element from arr[]. 
+    //            // We add these bits to 'twos'  
+    //            // using bitwise OR 
+    //            ones = ones ^ arr[i];
+
+    //            // The common bits are those bits  
+    //            // which appear third time So these  
+    //            // bits should not be there in both  
+    //            // 'ones' and 'twos'. common_bit_mask 
+    //            // contains all these bits as 0,  
+    //            // so that the bits can be removed  
+    //            // from 'ones' and 'twos' 
+    //            common_bit_mask = ~(ones & twos);
+
+    //            // Remove common bits (the bits that  
+    //            // appear third time) from 'ones' 
+    //            ones &= common_bit_mask;
+
+    //            // Remove common bits (the bits that 
+    //            // appear third time) from 'twos' 
+    //            twos &= common_bit_mask;
+    //        }
+    //        return ones;
+    //    }
+    //    static int findCountOfPrimeNumbers(string input)
+    //    {
+    //        string[] range = input.Split(',');
+    //        int num, index, breakCounter, start, end;
+    //        start = Convert.ToInt32(range[0]);
+    //        end = Convert.ToInt32(range[1]);
+
+    //        int counter = 0;
+    //        for (num = start; num <= end; num++)
+    //        {
+    //            breakCounter = 0;
+
+    //            for (index = 2; index <= num / 2; index++)
+    //            {
+    //                if (num % index == 0)
+    //                {
+    //                    breakCounter++;
+    //                    break;
+    //                }
+    //            }
+
+    //            if (breakCounter == 0 && num != 1)
+    //                counter++;
+    //        }
+    //        return counter;
+    //    }
+    //    public static bool IsWellformedString(string line)
+    //    {
+    //        Dictionary<char, char> bracketPairs = new Dictionary<char, char>() {
+    //        { '(', ')' },
+    //        { '{', '}' },
+    //        { '[', ']' },
+    //        { '<', '>' }
+    //    };
+
+    //        Stack<char> brackets = new Stack<char>();
+
+
+    //            foreach (char c in line)
+    //            {
+    //                if (bracketPairs.Keys.Contains(c))
+    //                {
+                        
+    //                    brackets.Push(c);
+    //                }
+    //                else
+                        
+    //                    if (bracketPairs.Values.Contains(c))
+    //                {
+    //                    if (c == bracketPairs[brackets.First()])
+    //                    {
+    //                        brackets.Pop();
+    //                    }
+    //                    else
+                           
+    //                        return false;
+    //                }
+    //                else
+                       
+    //                    continue;
+    //            }
+           
+    //        return brackets.Count() == 0 ? true : false;
+    //    }
+    //    static  int replaceZerowithone(int number, int existing, int change)
+    //    {
+
+    //        if (number == 0)
+    //        {
+    //            return 0;
+    //        }
+                
+    //        int digit = number % 10;
+
+    //        if (digit == existing)
+    //        {
+    //            digit = change;
+    //        }
+                
+    //        return replaceZerowithone(number / 10, existing, change) * 10 + digit;
+    //    }
+      
+
+    //    public static int maxProductOfNonOverlappingPalindrome(string s)
+    //    {
+
+    //        int prod = 0;
+    //        int[,] towDArray = new int[s.Length, s.Length];
+    //        for (int i = 0; i < s.Length; i++)
+    //        {
+    //            towDArray[i,i] = 1;
+    //        }
+
+    //        for (int cl = 2; cl <= s.Length; cl++)
+    //        {
+    //            for (int i = 0; i < s.Length - cl + 1; i++)
+    //            {
+    //                int j = i + cl - 1;
+    //                if (s[i] == s[j] && cl == 2)
+    //                {
+    //                    towDArray[i,j] = 2;
+    //                }
+    //                else if (s[i] == s[j])
+    //                {
+    //                    towDArray[i,j] = towDArray[i + 1,j - 1] + 2;
+    //                }
+    //                else
+    //                {
+    //                    towDArray[i,j] = Math.Max(towDArray[i,j - 1], towDArray[i + 1,j]);
+    //                }
+    //            }
+    //        }
+    //        for (int i = 0; i < s.Length - 1; i++)
+    //        {
+    //            prod = Math.Max(prod, towDArray[0,i] * towDArray[i + 1, s.Length - 1]);
+    //        }
+    //        return prod;
+    //    }
+
+    //    public static int max(String s)
+    //    {
+    //        int max = 0;
+    //        for (int i = 1; i < s.Length - 1; ++i)
+    //        {
+    //            String p1 = bestPalyndrome(s, 0, i);
+    //            String p2 = bestPalyndrome(s, i, s.Length);
+    //            int prod = p1.Length * p2.Length;
+    //            if (prod > max)
+    //            {
+    //                Console.WriteLine(p1 + " " + p2 + " -> " + prod);
+    //                max = prod;
+    //            }
+    //        }
+    //        pal.Select(x => x).Distinct().ToList();
+    //        return max;
+    //    }
+
+    //    private static String bestPalyndrome(String s, int start, int end)
+    //    {
+            
+    //        if (start >= end)
+    //        {
+    //            return "";
+    //        }
+    //        else if (end - start == 1 && end+start<10)
+    //        {
+    //            return s.Substring(start, end);
+    //        }
+    //        else if (s[start] == s[end - 1])
+    //        {
+    //            return s[start] + bestPalyndrome(s, start + 1, end - 1)
+    //                    + s[end - 1];
+    //        }
+    //        else
+    //        {
+    //            String s1 = bestPalyndrome(s, start, end - 1);
+    //            pal.Add(s1);
+    //            String s2 = bestPalyndrome(s, start + 1, end);
+    //            pal.Add(s2);
+    //            return s2.Length > s1.Length ? s2 : s1;
+    //        }
+    //    }
+    //    public static IEnumerable<IEnumerable<T>> SubSetsOf<T>(IEnumerable<T> source)
+    //    {
+          
+    //        if (!source.Any())
+    //            return Enumerable.Repeat(Enumerable.Empty<T>(), 1);
+
+    //        var element = source.Take(1);
+
+    //        var haveNots = SubSetsOf(source.Skip(1));
+    //        var haves = haveNots.Select(set => element.Concat(set));
+    //       // pal.Add(string.Join(",", element));
+    //        return haves.Concat(haveNots);
+    //    }
+
+      
+    //    public static IEnumerable<IEnumerable<T>> Subsets<T>(IEnumerable<T> source)
+    //    {
+    //        List<T> list = source.ToList();
+    //        int length = list.Count;
+    //        int max = (int)Math.Pow(2, list.Count);
+
+    //        for (int count = 0; count < max; count++)
+    //        {
+    //            List<T> subset = new List<T>();
+    //            uint rs = 0;
+    //            while (rs < length)
+    //            {
+    //                if ((count & (1u << (int)rs)) > 0)
+    //                {
+    //                    subset.Add(list[(int)rs]);
+    //                }
+    //                rs++;
+    //            }
+    //            yield return subset;
+    //        }
+    //    }
+    //    static int countPalindrome(string str)
+    //    {
+    //        List<string> substrings = new List<string>();
+    //        for (int length = 1; length < str.Length; length++)
+    //        {
+    //            // End index is tricky.
+    //            for (int start = 0; start <= str.Length - length; start++)
+    //            {
+    //                string substring = str.Substring(start, length);
+    //                var pal = Enumerable.Range(0, substring.Length / 2)
+    //                .Select(i => substring[i] == substring[substring.Length - i - 1])
+    //                .All(b => b);
+    //                if (pal)
+    //                {
+    //                    substrings.Add(substring);
+    //                }
+                    
+    //                Console.WriteLine(substring);
+    //            }
+    //        }
+           
+    //        int n = str.Length;
+    //        int sum = 0;
+    //        int MAX_CHAR = 26;
+    //        // calculate frequency 
+    //        int[] hashTable= new int[MAX_CHAR];
+
+    //        for (int i = 0; i < n; i++)
+    //        {
+    //            hashTable[str[i] - 'a']++;
+    //        }
+                
+
+    //        //// calculate count of palindromic sub-string 
+    //        //for (int i = 0; i < 26; i++)
+    //        //{
+    //        //    if (hashTable[i])
+    //        //        sum += (hashTable[i] * (hashTable[i] + 1) / 2);
+    //        //}
+
+    //        // return result 
+    //        return sum;
+    //    }
+
+    //    class MovieDto
+    //    {
+    //        public Guid MovieId { get; set; }
+    //        public string MovieName { get; set; }
+    //        public string Plot { get; set; }
+    //        public string Poster { get; set; }
+    //        public DateTime ReleaseDate { get; set; }
+    //    }
+    //}
+
+
+    //public class GFG
+    //{
+
+    //    static int N = 100;
+
+    //    // Pre-processing function 
+    //    static void pre_process(bool[,] arr, char[] s)
+    //    {
+
+    //        // Get the size of the string 
+    //        int n = s.Length;
+
+    //        // Initially mark every 
+    //        // position as false 
+    //        for (int i = 0; i < n; i++)
+    //        {
+    //            for (int j = 0; j < n; j++)
+    //            {
+    //                arr[i, j] = false;
+    //            }
+    //        }
+
+    //        // For the length 
+    //        for (int j = 1; j <= n; j++)
+    //        {
+
+    //            // Iterate for every index with 
+    //            // length j 
+    //            for (int i = 0; i <= n - j; i++)
+    //            {
+
+    //                // If the length is less than 2 
+    //                if (j <= 2)
+    //                {
+
+    //                    // If characters are equal 
+    //                    if (s[i] == s[i + j - 1])
+    //                    {
+    //                        arr[i, i + j - 1] = true;
+    //                    }
+    //                }
+    //                // Check for equal 
+    //                else if (s[i] == s[i + j - 1])
+    //                {
+    //                    arr[i, i + j - 1] = arr[i + 1, i + j - 2];
+    //                }
+    //            }
+    //        }
+    //    }
+
+    //    // Function to return the number of pairs 
+    //    public static int countPairs(String s)
+    //    {
+
+    //        // Create the arr table initially 
+    //        bool[,] arr = new bool[N, N];
+    //        pre_process(arr, s.ToCharArray());
+    //        int n = s.Length;
+
+    //        // Declare the left array 
+    //        int[] left = new int[n];
+
+    //        // Declare the right array 
+    //        int[] right = new int[n];
+
+    //        // Initially left[0] is 1 
+    //        left[0] = 1;
+
+    //        // Count the number of palindrome 
+    //        // pairs to the left 
+    //        for (int i = 1; i < n; i++)
+    //        {
+
+    //            for (int j = 0; j <= i; j++)
+    //            {
+
+    //                if (arr[j, i] == true)
+    //                {
+    //                    left[i]++;
+    //                }
+    //            }
+    //        }
+
+    //        // Initially right most as 1 
+    //        right[n - 1] = 1;
+
+    //        // Count the number of palindrome 
+    //        // pairs to the right 
+    //        for (int i = n - 2; i >= 0; i--)
+    //        {
+
+    //            right[i] = right[i + 1];
+
+    //            for (int j = n - 1; j >= i; j--)
+    //            {
+
+    //                if (arr[i, j] == true)
+    //                {
+    //                    right[i]++;
+    //                }
+    //            }
+    //        }
+
+    //        int ans = 0;
+
+    //        // Count the number of pairs 
+    //        for (int i = 0; i < n - 1; i++)
+    //        {
+    //            ans += left[i] * right[i + 1];
+    //        }
+
+    //        return ans;
+    //    }
+
+    //    // Driver code 
+    //    //public static void Main(String[] args)
+    //    //{
+    //    //    String s = "abacaba";
+    //    //    Console.Write(countPairs(s));
+    //    //}
+    //}
