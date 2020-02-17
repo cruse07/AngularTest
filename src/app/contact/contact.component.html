@@ -1,0 +1,43 @@
+<div class="container" fxLayout
+fxLayout.xs="column"
+fxLayoutAlign="center"
+fxLayoutGap="10px"
+fxLayoutGap.xs="0">
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <div ><label for="email" fxFlex="30%" fxLayoutGap="10px"> E-Mail</label> <input formControlName="email" fxFlex="80%"/>
+      
+    </div>
+    <div> <label for="mobile" fxFlex="30%" fxLayoutGap="10px"> Mobile</label> <input formControlName="mobile" fxFlex="80%" />
+      
+      <span *ngIf="(mobile.dirty || mobile.touched) && ((mobile.invalid && mobile.errors?.required ) || mobile.errors?.minlength)">
+      Mobile is required.
+    </span>
+    </div>
+  <div>
+    <label for="country" fxFlex="30%"> Country</label>
+    <select formControlName="country" fxFlex="80%">
+      <option *ngFor="let country of countries" [value]="country"
+        >{{country}}</option
+      >
+    </select>
+  </div>
+
+<div>
+  <label for="requestType" fxFlex="30%"> Request Type</label>
+  <select formControlName="requestType" fxFlex="80%">
+    <option *ngFor="let requestType of requestTypes" [value]="requestType">{{requestType}}</option>
+  </select>
+</div>
+<div>
+  <label for="text" fxFlex="30%"> Text</label>
+  <input formControlName="text" fxFlex="80%" />
+</div>
+<div>
+  <button type="submit" [disabled]="contactForm.pristine" fxFlex="50%">Save</button>
+  <button fxFlex="50%" type="reset" (click)="revert()" [disabled]="contactForm.pristine && !contactForm.valid">
+    Revert
+  </button>
+</div>
+</form>
+</div>

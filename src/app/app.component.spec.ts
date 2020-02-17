@@ -32,4 +32,9 @@ describe('AppComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Welcome to AngularTestApp!');
   });
+  it('add 3 and 4', ()=>{
+    const fixture = TestBed.createComponent(AppComponent); 
+    const app = fixture.debugElement.componentInstance;
+    expect(app.Add(3,4)).toEqual(7);
+  });
 });

@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngularTestApp';
+  public Add(i:number, j:number)
+  {
+    return i+j;
+  }
+  
 }
