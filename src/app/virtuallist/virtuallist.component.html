@@ -1,19 +1,22 @@
-<header>Virtual List</header>
+<h2>Total Record Count: {{items.length}}</h2>
+<h2 *ngIf="startingItem">{{startingItem}} to {{enditem}} of {{items.length}} are loaded</h2>
   <div class="table-like">
     <div class="table-head">
-      <span style="margin-right: 40px;">Id</span>
-      <span style="margin-right: 40px;">Name</span> 
-      <span style="width: 40px;">Age</span> 
+      <span style="margin-left: 2px; text-align: center;">Id</span>
+      <span style="margin-left: 50px; text-align: center;">Name</span> 
+      <span style="margin-left: 60px; text-align: center;">Contact Number</span>
+      <span style="margin-left: 200px;">Address</span> 
     </div>
   <virtual-list
   [source$]="items$"
   (update)="scrollList = $event"
-  (end)="fetchMore($event)"  height=500>
+  (end)="fetchMore($event)" height=400>
   
   <div *ngFor="let item of scrollList" style="display: table-row;">
-   <span style="display: table-cell; margin-right: 40px; padding: 3px 0 0 0;">{{item.id}}</span>
-   <span style="display: table-cell; margin-right: 40px; padding-left: 36px;">{{item?.name}}</span> 
-   <span style="display: table-cell; margin-right: 40px; padding-left: 36px;">{{item?.age}}</span> 
+   <span style="display: table-cell; padding: 3px 0 0 2px; text-align: center;">{{item.id}}</span>
+   <span style="display: table-cell; padding-left: 36px;text-align: center;">{{item?.name}}</span> 
+   <span style="display: table-cell; padding-left: 36px;">{{item?.contact}}</span>
+   <span style="display: table-cell; padding-left: 36px;">{{item?.address}}</span> 
   </div>
 
 </virtual-list>
