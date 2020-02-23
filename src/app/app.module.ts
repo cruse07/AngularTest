@@ -5,16 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContactComponent } from './contact/contact.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { VirtualListModule } from 'angular-virtual-list';
+import { VirtuallistComponent } from './virtuallist/virtuallist.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ContactComponent
+    ContactComponent,
+    VirtuallistComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    VirtualListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

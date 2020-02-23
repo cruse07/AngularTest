@@ -1,0 +1,18 @@
+.table-like{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 2em;
+    border: 1px solid #9173ff;
+}
+
+.table-head{
+    color: #fff;
+    background-color: #6940ff;
+    border-bottom: 1px solid #9173ff;
+}

@@ -1,0 +1,20 @@
+<header>Virtual List</header>
+  <div class="table-like">
+    <div class="table-head">
+      <span style="margin-right: 40px;">Id</span>
+      <span style="margin-right: 40px;">Name</span> 
+      <span style="width: 40px;">Age</span> 
+    </div>
+  <virtual-list
+  [source$]="items$"
+  (update)="scrollList = $event"
+  (end)="fetchMore($event)"  height=500>
+  
+  <div *ngFor="let item of scrollList" style="display: table-row;">
+   <span style="display: table-cell; margin-right: 40px; padding: 3px 0 0 0;">{{item.id}}</span>
+   <span style="display: table-cell; margin-right: 40px; padding-left: 36px;">{{item?.name}}</span> 
+   <span style="display: table-cell; margin-right: 40px; padding-left: 36px;">{{item?.age}}</span> 
+  </div>
+
+</virtual-list>
+</div>
