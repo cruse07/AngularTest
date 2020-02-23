@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ChangeEvent } from 'angular-virtual-list';
-import { CompileShallowModuleMetadata } from '@angular/compiler';
 
 
 export class UserModel {
