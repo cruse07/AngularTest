@@ -2,22 +2,36 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { PersonalData } from '../models/personaldata.model';
 import { Contact } from '../models/contact.model';
-
+import { DashboardService } from '../services/dashboard.service'
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrls: ['./contact.component.scss'],
+  providers: [DashboardService]
 })
 export class ContactComponent implements OnInit {
   countries = ['USA', 'Germany', 'Italy', 'France']
-
+  public data: any = [];
   requestTypes = ['Claim', 'Feedback', 'Help Request']
   contactForm: FormGroup;
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private svcDashboard: DashboardService) {
     this.contactForm = this.createFormGroupWithBuilderAndModel(formBuilder);
-   }
+    //this.getValue()
+  }
 
   ngOnInit() {
+  }
+  getValue() {
+    this.svcDashboard.getDashboard().subscribe(resp => {
+      this.data = resp
+      console.log(this.data);
+    })
+  }
+
+  needsLogin() {
+    var isLogin= !this.svcDashboard.isAuthenticated();
+    console.log(isLogin);
+    return isLogin;
   }
   // createFormGroup() {
   //   return new FormGroup({
@@ -45,33 +59,32 @@ export class ContactComponent implements OnInit {
 
   createFormGroupWithBuilderAndModel(formBuilder: FormBuilder) {
     return formBuilder.group({
-      requestType: new FormControl('',[Validators.required]),
-      text: new FormControl ('',[Validators.required]),
-      email: new FormControl ('',[Validators.email, Validators.required]),
-      mobile: new FormControl('',[Validators.required, Validators.minLength(10)]),
-      country: new FormControl ('',[Validators.required])
+      requestType: new FormControl('', [Validators.required]),
+      text: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.email, Validators.required]),
+      mobile: new FormControl('', [Validators.required, Validators.minLength(10)]),
+      country: new FormControl('', [Validators.required])
     });
   }
 
   get mobile() {
     return this.contactForm.get('mobile');
   }
-  
+
   get email() {
     return this.contactForm.get('email');
   }
   onSubmit() {
-    if(this.contactForm.valid)
-    {
+    if (this.contactForm.valid) {
       // Make sure to create a deep copy of the form-model
       const result: Contact = Object.assign({}, this.contactForm.value);
       // Do useful stuff with the gathered data
       console.log(result);
     }
-    else{
+    else {
       alert('Invalid Form');
     }
-   
+
   }
 
   revert() {
