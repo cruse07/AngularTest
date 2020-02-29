@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { PersonalData } from '../models/personaldata.model';
 import { Contact } from '../models/contact.model';
-import { DashboardService } from '../services/dashboard.service'
+import { DashboardService } from '../services/dashboard.service';
+import {map} from 'rxjs/operators';
+import { of, concat } from 'rxjs';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -20,6 +22,13 @@ export class ContactComponent implements OnInit {
   }
 
   ngOnInit() {
+    const ob1 = of (1, 2, 3);
+    const ob2= of (4,5,6);
+    const mulValues = map ((val: number) => val * 2);
+    const mulNums = mulValues (ob1);
+    //mulNums.subscribe(x => console.log(x));
+    const result = concat(ob1, ob2)
+    result.subscribe(console.log);
   }
   getValue() {
     this.svcDashboard.getDashboard().subscribe(resp => {
