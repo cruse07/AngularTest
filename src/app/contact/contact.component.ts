@@ -3,8 +3,8 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { PersonalData } from '../models/personaldata.model';
 import { Contact } from '../models/contact.model';
 import { DashboardService } from '../services/dashboard.service';
-import {map} from 'rxjs/operators';
-import { of, concat } from 'rxjs';
+import {map, switchMap, debounceTime, distinctUntilChanged} from 'rxjs/operators';
+import { of, concat, Subject, Observable } from 'rxjs';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -16,12 +16,27 @@ export class ContactComponent implements OnInit {
   public data: any = [];
   requestTypes = ['Claim', 'Feedback', 'Help Request']
   contactForm: FormGroup;
+searchKey:string;
+private searchTerms = new Subject<string>();
+countries$: Observable<any>;
   constructor(private formBuilder: FormBuilder, private svcDashboard: DashboardService) {
     this.contactForm = this.createFormGroupWithBuilderAndModel(formBuilder);
     //this.getValue()
+    this.SetValue();
   }
 
   ngOnInit() {
+    this.countries$ = this.searchTerms.pipe(
+      // wait 300ms after each keystroke before considering the term
+      debounceTime(300),
+
+      // ignore new term if same as previous term
+      distinctUntilChanged(),
+
+      // switch to new search observable each time the term changes
+      switchMap((term: string) => this.svcDashboard.switchCountry(term)),
+    );
+  
     const ob1 = of (1, 2, 3);
     const ob2= of (4,5,6);
     const mulValues = map ((val: number) => val * 2);
@@ -30,8 +45,15 @@ export class ContactComponent implements OnInit {
     const result = concat(ob1, ob2)
     result.subscribe(console.log);
   }
+  SetValue()
+  {
+    this.svcDashboard.SetValue(true).subscribe(resp => {
+      this.data = resp
+      console.log(this.data);
+    })
+  }
   getValue() {
-    this.svcDashboard.getDashboard().subscribe(resp => {
+    this.svcDashboard.getValue().subscribe(resp => {
       this.data = resp
       console.log(this.data);
     })
@@ -103,4 +125,20 @@ export class ContactComponent implements OnInit {
     // Resets to provided model
     this.contactForm.reset({ personalData: new PersonalData(), requestType: '', text: '' });
   }
+
+  getCountryByName(key:string)
+  {
+    this.svcDashboard.searchCountry(key).subscribe(resp=>{
+      console.log(resp);
+    })
+  }
+  searchUsingSwitch(key: string)
+  {
+    this.searchTerms.next(key)
+    // switch to new search observable each time the term changes
+    //switchMap((term: string) => this.svcDashboard.searchCountry(term)),
+  }
 }
+
+
+

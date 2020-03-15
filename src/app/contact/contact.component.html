@@ -40,4 +40,22 @@ fxLayoutGap.xs="0">
   </button>
 </div>
 </form>
+
+</div>
+<div>
+  <label>Type Here</label>
+  <input type="text" id="inAuto" name="inAuto" style="margin-left: 20px;" [(ngModel)]="searchKey" (input)="getCountryByName(searchKey)" >
+</div>
+<div id="search-component">
+  <h4><label for="search-box">Country  Search</label></h4>
+
+  <input #searchBox id="search-box" (input)="searchUsingSwitch(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let country of countries$ | async" >
+      <a routerLink="">
+        {{country}}
+      </a>
+    </li>
+  </ul>
 </div>
